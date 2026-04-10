@@ -39,7 +39,7 @@ jobs:
       - name: Push JSON to storage repo
         run: |
           git clone https://x-access-token:${MY_PAT}@github.com/${{ github.repository_owner }}/k.git k_repo
-          mv newfile.json k_repo/
+          mv newfiles.json k_repo/
           cd k_repo
           git config user.name "Sync-Bot"
           git config user.email "bot@sync.com"
