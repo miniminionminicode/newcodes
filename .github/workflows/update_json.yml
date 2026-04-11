@@ -43,6 +43,6 @@ jobs:
           cd k_repo
           git config user.name "Sync-Bot"
           git config user.email "bot@sync.com"
-          git add newfile.json
+          git add newfiles.json
           git commit -m "Auto-Sync: $(date -u)" || echo "No changes to commit"
           git push origin main
