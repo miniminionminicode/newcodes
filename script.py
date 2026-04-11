@@ -22,8 +22,7 @@ AUTH_KEY    = os.getenv("AUTH_KEY")
 AUTH_VAL    = os.getenv("AUTH_VAL")
 
 SECURE_PATH = os.getenv("SECURE_PATH")
-
-OUTPUT_FILE = "newfile.json"
+OUTPUT_FILE = "newfiles.json"
 
 # ────────────────────────────────────────────────
 # RETRY CONFIG
