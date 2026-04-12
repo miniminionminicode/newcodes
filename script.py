@@ -30,7 +30,7 @@ OUTPUT_FILE = "newfiles.json"
 
 MAX_RETRIES      = 20
 RETRY_BASE_DELAY = 5
-RETRY_MAX_DELAY  = 60
+RETRY_MAX_DELAY  = 50
 RATE_LIMIT_PAUSE = 10
 
 # ────────────────────────────────────────────────
