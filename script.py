@@ -491,6 +491,8 @@ def main():
 
     
     
+   
+    
     print("\n[INIT] Fetching batch list")
     try:
         r = session.get(BATCHES_URL, headers=HEADERS)
@@ -509,6 +511,9 @@ def main():
     except Exception as e:
         print(f"[ERROR] Batch fetch failed: {e}")
         return
+
+    total = len(all_batches)
+    print(f"[INIT] Total courses to process: {total}")
 
     # ── NO os.remove(OUTPUT_FILE) — we never wipe existing data ──
 
