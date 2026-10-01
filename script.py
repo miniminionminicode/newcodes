@@ -288,6 +288,8 @@ def verify_session():
 # SAFE API CALL
 # ────────────────────────────────────────────────
 
+
+
 def safe_api_call(path, label=""):
     global API_CALLS
 
@@ -300,9 +302,8 @@ def safe_api_call(path, label=""):
 
     for attempt in range(1, MAX_RETRIES + 1):
 
-        fetch_security_token(path)
-        time.sleep(0.3)
-
+        # Removed fetch_security_token(path) here
+        
         try:
             r = session.get(f"{BASE_URL}{path}", headers=HEADERS, timeout=20)
             print(f"{tag} Attempt {attempt}/{MAX_RETRIES} -> HTTP {r.status_code}")
