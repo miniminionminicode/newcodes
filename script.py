@@ -491,7 +491,14 @@ def main():
 
     print("\n[INIT] Fetching batch list")
     try:
-        all_batches = session.get(BATCHES_URL, headers=HEADERS).json()
+        r = session.get(BATCHES_URL, headers=HEADERS)
+        print(f"[INIT] Batch fetch status: {r.status_code}")
+        
+        if r.status_code != 200:
+            print(f"[ERROR] Server rejected request. Response preview:\n{r.text[:300]}")
+            return
+            
+        all_batches = r.json()
         print(f"[INIT] Total batches available: {len(all_batches)}")
     except Exception as e:
         print(f"[ERROR] Batch fetch failed: {e}")
