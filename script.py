@@ -489,6 +489,8 @@ def main():
         print("[ERROR] Authentication failed")
         return
 
+    
+    
     print("\n[INIT] Fetching batch list")
     try:
         r = session.get(BATCHES_URL, headers=HEADERS)
@@ -498,14 +500,15 @@ def main():
             print(f"[ERROR] Server rejected request. Response preview:\n{r.text[:300]}")
             return
             
-        all_batches = r.json()
+        # Clean trailing commas if any exist before parsing JSON
+        import re
+        cleaned_text = re.sub(r',\s*([\]}])', r'\1', r.text)
+        
+        all_batches = json.loads(cleaned_text)
         print(f"[INIT] Total batches available: {len(all_batches)}")
     except Exception as e:
         print(f"[ERROR] Batch fetch failed: {e}")
         return
-
-    total = len(all_batches)
-    print(f"[INIT] Total courses to process: {total}")
 
     # ── NO os.remove(OUTPUT_FILE) — we never wipe existing data ──
 
